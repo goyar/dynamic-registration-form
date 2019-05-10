@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Registration From</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- Section for development purposes: It's a preview of the form data -->
+            <div class="col-md-12" class="forDevs">
+                <div class="col-md-12">
+                    <pre id="output"></pre>
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <input type="button" class="btn btn-primary pull-right" onclick="devTestGetObject();" value="get object">
+                </div>
+            </div>
+            <br><br><br>
+            <!-- Form controller controller -->
+            <div class="col-md-12">
+                <legend>Account type</legend>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 userSelector">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id='isPlayer' class="userType userType1" name="Player" value="Player">Player
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="userType userType2" name="Guardian" value="Guardian">Guardian
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="userType userType2" name="Coach" value="Coach">Coach
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="userType userType2" name="Admin" value="Admin">Admin
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="col-md-12">
+                <h2>Add User</h2>
+                <br>
+                <form id="registrationForm">
+                    <fieldset id="personalInfo">
+                        <legend>Personal Information</legend>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="FirstName">First Name:</label>
+                                    <input class="form-control" id="FirstName" name="FirstName" type="text" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="LastName">Last Name:</label>
+                                    <input class="form-control" id="LastName" name="LastName" type="text" required>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="Gender">Gender</label>
+                                    <select class="form-control" name="Gender" id="Gender">
+                                        <option value="1">Male</option>
+                                        <option value="2">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="Birthdate">Birthdate</label>
+                                    <input class="form-control" id="Birthdate" name="Birthdate" type="text" required>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset id="contactInfo">
+                        <legend>Contact Information</legend>
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-6">
+                                <div class="form-group">
+                                    <label for="Email">Email:</label>
+                                    <input class="form-control" id="Email" name="Email" type="email" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <label for="MainPhoneCountry">Phone:</label>
+                                <div class="form-group">
+                                    <div class="col-xs-3">
+                                        <input class="form-control" id="MainPhoneCountry" name="MainPhoneCountry" type="text" required>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input class="form-control" id="MainPhoneZone" name="MainPhoneZone" type="text" required>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <input class="form-control" id="MainPhonenNumer" name="MainPhonenNumer" type="text" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <br>
+                    <fieldset id="addressInfo">
+                        <div class="myContent">
+                            <legend>Address</legend>
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="Street">Stree Address:</label>
+                                        <input class="form-control" id="Street" name="Street" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-2 col-xs-4">
+                                    <div class="form-group">
+                                        <label for="Unit">Unit:</label>
+                                        <input class="form-control" id="Unit" name="Unit" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-2 col-xs-4">
+                                    <div class="form-group">
+                                        <label for="City">City:</label>
+                                        <input class="form-control" id="City" name="City" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-2 col-xs-4">
+                                    <div class="form-group">
+                                        <label for="Country">Country</label>
+                                        <input class="form-control" id="Country" name="Country" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset id="playerInfo" class="Player">
+                        <div class="myContent">
+                            <legend>Emergency Contact</legend>
+                            <div class="row">
+                                <div class="col-sm-4 col-xs-6">
+                                    <div class="form-group">
+                                        <label for="EmergencyName">Name:</label>
+                                        <input class="form-control" id="EmergencyName" name="EmergencyName" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label for="EmergencyPhone">Phone:</label>
+                                    <div class="form-group">
+                                        <div class="col-xs-3">
+                                            <input class="form-control" id="EmergencyPhone" name="EmergencyPhoneCountry" type="text">
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input class="form-control" id="EmergencyPhone" name="EmergencyPhoneZone" type="text">
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <input class="form-control" id="EmergencyPhone" name="EmergencyPhonenNumer" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <legend>Player Information</legend>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <label for="PlayerCategory">Category:</label>
+                                        <select class="form-control" name="PlayerCategory" id="PlayerCategory">
+                                                <option value="1">Category1</option>
+                                                <option value="2">Category2</option>
+                                                <option value="3">Category3</option>
+                                                <option value="4">Category4</option>
+                                                <option value="5">Category5</option>
+                                                <option value="6">Category6</option>
+                                                <option value="7">Category7</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <label for="PlayerClub">Club:</label>
+                                        <select class="form-control" name="PlayerClub" id="PlayerClub">
+                                                <option value="1">Club1</option>
+                                                <option value="2">Club2</option>
+                                                <option value="3">Club3</option>
+                                                <option value="4">Club4</option>
+                                                <option value="5">Club5</option>
+                                                <option value="6">Club6</option>
+                                                <option value="7">Club7</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <label for="PlayerParent">Parent:</label>
+                                        <select class="form-control" name="PlayerParent" id="PlayerParent">
+                                                <option value="1">Parent1</option>
+                                                <option value="2">Parent2</option>
+                                                <option value="3">Parent3</option>
+                                                <option value="4">Parent4</option>
+                                                <option value="5">Parent5</option>
+                                                <option value="6">Parent6</option>
+                                                <option value="7">Parent7</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset id="coachInfo" class="Coach">
+                        <div class="myContent">
+                            <legend>Coach Information</legend>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <label for="CoachCategory">Category:</label>
+                                        <select class="form-control" name="CoachCategory" id="CoachCategory">
+                                                <option value="1">Category1</option>
+                                                <option value="2">Category2</option>
+                                                <option value="3">Category3</option>
+                                                <option value="4">Category4</option>
+                                                <option value="5">Category5</option>
+                                                <option value="6">Category6</option>
+                                                <option value="7">Category7</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <label for="CoachClub">Club:</label>
+                                        <select class="form-control" name="CoachClub" id="CoachClub">
+                                                <option value="1">Club1</option>
+                                                <option value="2">Club2</option>
+                                                <option value="3">Club3</option>
+                                                <option value="4">Club4</option>
+                                                <option value="5">Club5</option>
+                                                <option value="6">Club6</option>
+                                                <option value="7">Club7</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset id="adminInfo" class="Admin">
+                        <div class="myContent">
+                            <legend>Admin Information</legend>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="AdminClub">Club:</label>
+                                        <select class="form-control" name="AdminClub" id="AdminClub">
+                                                <option value="1">Club1</option>
+                                                <option value="2">Club2</option>
+                                                <option value="3">Club3</option>
+                                                <option value="4">Club4</option>
+                                                <option value="5">Club5</option>
+                                                <option value="6">Club6</option>
+                                                <option value="7">Club7</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>                    
+                    <hr>
+                    <fieldset>
+                        <input type="submit" class="btn btn-primary pull-right" value="Add User"><br><br><br>
+                    </fieldset>
+                </form>
+            </div>
+        </div>    
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <script src="/js/registration.js"></script>
+</body>
+</html>
